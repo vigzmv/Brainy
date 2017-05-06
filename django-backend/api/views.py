@@ -3,7 +3,8 @@ from __future__ import unicode_literals
 from django.views.decorators.csrf import csrf_exempt
 
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseNotFound
+from django.core import serializers
 
 # Create your views here.
 
@@ -20,8 +21,26 @@ def addPost(request):
         img_url = request.POST.get('img_url')
         content = request.POST.get('content')
 
-        Post.objects.create(title=title, desc=desc, img_url=img_url, content=content)
-
+        post = Post.objects.create(title=title, desc=desc, img_url=img_url, content=content)
+        print post.id
         result = {'message' : 'done'}
-        
+
         return JsonResponse(result)
+
+    else:
+        return HttpResponseNotFound(content=b'Not Found')
+
+def getPost(request):
+    post_id = int(request.GET.get('post', ''))
+    if Post.objects.filter(id=post_id).first():
+        post = Post.objects.filter(id=post_id)
+        obj = serializers.serialize('json', post)
+        return HttpResponse(obj, content_type='json')
+    else:
+        result = {'message' : 'Not Found'}
+        return JsonResponse(result)
+
+def getAllPost(request):
+    posts = Post.objects.all()
+    obj = serializers.serialize('json', posts)
+    return HttpResponse(obj, content_type='json')
