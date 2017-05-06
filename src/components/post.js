@@ -6,17 +6,15 @@ var Clarifai = require('clarifai');
 var app = new Clarifai.App('NC_zCTITbajnUlNUJ8LrFMl4FH5tl-1Bl8nSp30p', '1QoTBYaR8MDQRIr_rRHI3RDVvYeMyslkHtq7D9BY');
 
 const pix = '5295631-a69146e890113b5bb39ba83a2';
-
+const items = ["popular", "latest",]
 function pixx() {
   const imgss = document.querySelectorAll('.i');
   Array.from(imgss).map(imgg => {
     console.log(imgg.id);
-    fetch('https://pixabay.com/api/?key=5295631-a69146e890113b5bb39ba83a2&q=' + imgg.id)
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        imgg.src = res.hits[0].previewURL;
-      });
+    fetch('https://pixabay.com/api/?key=5295631-a69146e890113b5bb39ba83a2&q=' + imgg.id + '&order=' + items[Math.floor(Math.random() * items.length)]).then(res => res.json()).then(res => {
+      console.log(res);
+      imgg.src = res.hits[Math.floor(Math.random() * (res.hits.length - 0 + 1)) + 0].previewURL;
+    });
   });
 }
 
@@ -25,7 +23,7 @@ class Post extends Component {
     super();
     this.state = {
       data: null,
-      imgc: null
+      imgc: null,
     };
     this.clarif = this.clarif.bind(this);
   }
@@ -42,8 +40,7 @@ class Post extends Component {
   clarif() {
     let self = this;
     app.models.predict(Clarifai.GENERAL_MODEL, this.state.data[0].fields.img_url).then(function (response) {
-      let con = (response.outputs[0].data.concepts.slice(0, 4))
-      .map(concept => ({name: concept.name, val: concept.value}));
+      let con = (response.outputs[0].data.concepts.slice(0, 2)).map(concept => ({name: concept.name, val: concept.value,}));
 
       console.table(con);
       self.setState({imgc: con});
@@ -60,11 +57,11 @@ class Post extends Component {
       o = this.state.data[0];
       content = (
         <div className="row" key={o.pk}>
-          <div className="col-md-8">
+          <div className="col-md-3">
             <img className="img-responsive" src={o.fields.img_url} alt=""/>
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-6">
             <h3>{o.fields.title}</h3>
             <p>{o.fields.content}</p>
             {/* <h3>Project Details</h3>
@@ -83,11 +80,12 @@ class Post extends Component {
     if (this.state.imgc) {
       imgc = (this.state.imgc.map(i => {
         return (
-          <div className="col-sm-3 col-xs-6">
+          <div className="col-sm-3 col-xs-6" key={i.name}>
             <a href="#">
-              <img id={i.name}
-                className="img-responsive i portfolio-item"
-                alt=""/> {i.name.charAt(0).toUpperCase() + i.name.slice(1)}
+              <div id="images">
+              <img id={i.name} className="img-responsive i portfolio-item" alt=""/>
+              </div>
+              &nbsp; Post About {i.name.charAt(0).toUpperCase() + i.name.slice(1)}....
             </a>
           </div>
         )
@@ -98,10 +96,11 @@ class Post extends Component {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <h1 className="page-header">Item
+            {/* <h1 className="page-header">Item
               <small>
-                Item Subheading</small>
-            </h1>
+                Item Subheading
+              </small>
+            </h1> */}
           </div>
         </div>
         {content}
@@ -109,6 +108,7 @@ class Post extends Component {
           <div className="col-lg-12">
             <h3 className="page-header">Related content</h3>
           </div>
+          {imgc}
           {imgc}
         </div>
         <hr/>

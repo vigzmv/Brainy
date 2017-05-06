@@ -15,7 +15,6 @@ class Form extends Component {
                     className="form-control"
                     name="title"
                     id="InputName"
-                    placeholder="Enter Name"
                     required/>
                   <span className="input-group-addon">
                     <span className="glyphicon glyphicon-asterisk"></span>
@@ -30,7 +29,6 @@ class Form extends Component {
                     className="form-control"
                     id="InputEmailFirst"
                     name="desc"
-                    placeholder="Enter Email"
                     required/>
                   <span className="input-group-addon">
                     <span className="glyphicon glyphicon-asterisk"></span>
@@ -45,7 +43,6 @@ class Form extends Component {
                     className="form-control"
                     id="InputEmailSecond"
                     name="img_url"
-                    placeholder="Confirm Email"
                     required/>
                   <span className="input-group-addon">
                     <span className="glyphicon glyphicon-asterisk"></span>

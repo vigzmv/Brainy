@@ -15,18 +15,15 @@ class Nav extends Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="/">Angel Hacks</a>
+            <a className="navbar-brand" href="/"><b>Angel Hacks</b></a>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav pull-right">
               <li>
-                <a href="#">About</a>
+                <a href="#"><b>About</b></a>
               </li>
               <li>
-                <a href="#">Services</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
+                <a href="/add"><b>Add New Post</b></a>
               </li>
             </ul>
           </div>

@@ -21,21 +21,24 @@ class Post extends Component {
     let content = '';
     content = (this.state.data.map(o => {
       return (
+        <div>
         <div className="row" key={o.pk}>
-          <div className="col-md-7">
+          <div className="col-md-4">
             <a href="#">
               <img className="img-responsive" src={o.fields.img_url} alt=""/>
             </a>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-7">
             <h3>{o.fields.title}</h3>
             <h4>{o.fields.desc}</h4>
             <p>{o.fields.content}</p>
-            <a className="btn btn-primary" href={'/post/?post=' + o.pk}>View Article
+            <a className="btn btn-primary" href={'/post/?post=' + o.pk}>View Post &nbsp;
               <span className="glyphicon glyphicon-chevron-right"></span>
             </a>
           </div>
         </div>
+        <hr/>
+      </div>
       )
     }));
 
@@ -44,15 +47,13 @@ class Post extends Component {
 
         <div className="row">
           <div className="col-lg-12">
-            <h1 className="page-header">Page Heading
-              <small>Secondary Text</small>
+            <h1 className="page-header">Latest Posts
+              <small> Last updated: Today</small>
             </h1>
           </div>
         </div>
 
         {content}
-
-        <hr/>
 
         <div className="row text-center">
           <div className="col-lg-12">
@@ -68,12 +69,6 @@ class Post extends Component {
               </li>
               <li>
                 <a href="#">3</a>
-              </li>
-              <li>
-                <a href="#">4</a>
-              </li>
-              <li>
-                <a href="#">5</a>
               </li>
               <li>
                 <a href="#">&raquo;</a>

@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #FFFDE7;
 }
 
 body {
@@ -10,4 +11,23 @@ body {
 
 footer {
     margin: 50px 0;
+}
+
+#images
+{
+    width: 130px;
+    height: 100px;
+    overflow: hidden;
+    margin: 10px;
+    position: relative;
+}
+.i {
+    position:absolute;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    margin: auto;
+    min-height: 100%;
+    min-width: 100%;
 }

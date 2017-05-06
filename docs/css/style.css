@@ -1,0 +1,203 @@
+body {
+  background: #F94F6A;
+  -webkit-font-smoothing: antialiased !important;
+  webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 900;
+  color: white;
+}
+
+.type span {
+  display: block;
+}
+
+.type {
+  width: 700px;
+  height: 300px;
+  margin: 50px auto;
+  text-align: center;
+  color: #F5C4B6;
+  line-height: 0.95;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-weight: bold;
+}
+
+b {
+  font-size: 1.1em;
+  color: #f0e6e3;
+}
+
+#title {
+  font-size: 150px;
+}
+
+.type span:nth-child(1)::first-letter {}
+
+#cursive, #content {
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+  font-size: 70px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 5px 0 0 #F94F6A, -5px 0 0 #F94F6A, 0 5px 0 #F94F6A, 0 -5px 0 #F94F6A, 4px 4px #F94F6A, -4px -4px 0 #F94F6A, 4px -4px 0 #F94F6A, -4px 4px 0 #F94F6A;
+  -webkit-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  color: #fff;
+  margin-top: 5px;
+}
+
+#content {
+  transform: rotate(0);
+  line-height: 2em;
+}
+
+.type span:nth-child(3) {
+  font-size: 150px;
+  margin-top: -12px;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400,700);
+.headText {
+  text-align: center;
+  color: #4d4d4d;
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+}
+.headText h1 {
+  font-size: 6em;
+  font-weight: 100;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.headText .smaller {
+  font-weight: 100;
+  text-transform: none;
+  font-size: 1.4em;
+}
+
+.buttonChest, #next{
+  left: 36%;
+  top: 20px;
+  position: relative;
+  list-style: none;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#next {
+  left: 41%;
+}
+.buttonChest li {
+  display: inline-block;
+  position: relative;
+  min-height: 80px;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.buttonChest li .click {
+  position: absolute;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  color: #4d4d4d;
+  text-transform: uppercase;
+  width: 100%;
+  top: 16px;
+  z-index: -1;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.buttonChest li:hover .click {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  background: #fff;
+  top: 56px;
+  position: absolute;
+  padding-top: 4px;
+  padding-bottom: 5px;
+}
+.buttonChest li:hover {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: scale(0.9) rotate(3deg);
+  -moz-transform: scale(0.9) rotate(3deg);
+  -ms-transform: scale(0.9) rotate(3deg);
+  -o-transform: scale(0.9) rotate(3deg);
+  transform: scale(0.9) rotate(3deg);
+}
+
+.button {
+  font-family: "Lato", sans-serif;
+  font-size: 1.8em;
+  color: #fff;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 10px 40px 10px 40px;
+  cursor: pointer;
+  box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.button:hover {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  box-shadow: none;
+  border-bottom: solid 8px #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+@media only screen and (max-width: 762px) {
+  .headText h1 {
+    font-size: 4em;
+  }
+}
+.navy {
+  background: #2c3e50;
+}
+
+.red {
+  background: #e74c3c;
+}
+
+.ocean {
+  background: #3498db;
+}
+
+.api {
+  background: #2980b9;
+}
+
+.chalk {
+  background: #ecf0f1;
+  color: #4d4d4d;
+}
+
+.drab {
+  background: #3f4036;
+}
+
+.teal {
+  background: #8da681;
+}
+
+.jason {
+  background: #bf2806;
+}
+
+.darkRed {
+  background: #8c1d04;
+}

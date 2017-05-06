@@ -8,9 +8,9 @@ from django.db import models
 
 class Post(models.Model):
     user = models.ForeignKey(User, default=1)
-    title = models.CharField(max_length=120)
-    desc = models.CharField(max_length=120)
-    img_url = models.CharField(max_length=120)
+    title = models.CharField(max_length=255)
+    desc = models.CharField(max_length=255)
+    img_url = models.CharField(max_length=255)
     content = models.TextField()
     # slug = models.SlugField(unique=True)
 

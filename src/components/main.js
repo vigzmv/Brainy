@@ -8,6 +8,7 @@ import Nav from './nav';
 import Home from './home';
 import Post from './post';
 import Form from './form';
+import Start from './start';
 
 
 class Main extends Component {
