@@ -1,41 +1,60 @@
 import React, {Component} from 'react';
 
 class Post extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      data: null
+    };
+  }
+
+  componentWillMount() {
+    const id = /post=([^&#=]*)/.exec(window.location.search)[1];
+    const url = 'http://localhost:8000/api/get/post/?post=' + id;
+    fetch(url).then(data => data.json()).then(data => {
+      this.setState({data: data});
+    });
+  }
+
   render() {
-    return (
-      <div className="container">
-
+    let content = '';
+    let o = '';
+    if (this.state.data) {
+      o = this.state.data[0];
+      content = (
         <div className="row">
-          <div className="col-lg-12">
-            <h1 className="page-header">Portfolio Item
-              <small>Item Subheading</small>
-            </h1>
-          </div>
-        </div>
-
-        <div className="row">
-
           <div className="col-md-8">
-            <img className="img-responsive" src="http://placehold.it/750x500" alt=""/>
+            <img className="img-responsive" src={o.fields.img_url} alt=""/>
           </div>
 
           <div className="col-md-4">
-            <h3>Project Description</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
-              odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in
-              adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis
-              placerat, felis enim.</p>
-            <h3>Project Details</h3>
+            <h3>{o.fields.title}</h3>
+            <p>{o.fields.content}</p>
+            {/* <h3>Project Details</h3>
             <ul>
               <li>Lorem Ipsum</li>
               <li>Dolor Sit Amet</li>
               <li>Consectetur</li>
               <li>Adipiscing Elit</li>
-            </ul>
+            </ul> */}
           </div>
 
         </div>
+      );
+    }
+    console.log(o.fields);
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <h1 className="page-header">Item
+              <small> Item Subheading</small>
+            </h1>
+          </div>
+        </div>
 
+        { content }
         <div className="row">
 
           <div className="col-lg-12">
@@ -91,7 +110,7 @@ class Post extends Component {
         </footer>
 
       </div>
-    )
+    );
   }
 }
 

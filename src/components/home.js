@@ -1,7 +1,45 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 class Post extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      data: []
+    };
+  }
+
+  componentDidMount() {
+
+    fetch('http://localhost:8000/api/all/post/').then(data => data.json()).then(data => {
+      console.log(data);
+      this.setState({data: data});
+    });
+  }
+
   render() {
+    let content = '';
+    content = (this.state.data.map(o => {
+      return (
+        <div className="row" key={o.pk}>
+          <div className="col-md-7">
+            <a href="#">
+              <img className="img-responsive" src={o.fields.img_url} alt=""/>
+            </a>
+          </div>
+          <div className="col-md-5">
+            <h3>{o.fields.title}</h3>
+            <h4>{o.fields.desc}</h4>
+            <p>{o.fields.content}</p>
+            <a className="btn btn-primary" href={'/post/?post=' + o.pk}>View Article
+              <span className="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </div>
+        </div>
+      )
+    }));
+
     return (
       <div className="container">
 
@@ -13,104 +51,7 @@ class Post extends Component {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-7">
-            <a href="#">
-              <img className="img-responsive" src="http://placehold.it/700x300" alt=""/>
-            </a>
-          </div>
-          <div className="col-md-5">
-            <h3>Project One</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam
-              exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut
-              nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-            <a className="btn btn-primary" href="#">View Project
-              <span className="glyphicon glyphicon-chevron-right"></span>
-            </a>
-          </div>
-        </div>
-
-        <hr/>
-
-        <div className="row">
-          <div className="col-md-7">
-            <a href="#">
-              <img className="img-responsive" src="http://placehold.it/700x300" alt=""/>
-            </a>
-          </div>
-          <div className="col-md-5">
-            <h3>Project Two</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit
-              cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae
-              modi quidem similique ducimus! Velit, esse totam tempore.</p>
-            <a className="btn btn-primary" href="#">View Project
-              <span className="glyphicon glyphicon-chevron-right"></span>
-            </a>
-          </div>
-        </div>
-
-        <hr/>
-
-        <div className="row">
-          <div className="col-md-7">
-            <a href="#">
-              <img className="img-responsive" src="http://placehold.it/700x300" alt=""/>
-            </a>
-          </div>
-          <div className="col-md-5">
-            <h3>Project Three</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus,
-              dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit
-              fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-            <a className="btn btn-primary" href="#">View Project
-              <span className="glyphicon glyphicon-chevron-right"></span>
-            </a>
-          </div>
-        </div>
-
-        <hr/>
-
-        <div className="row">
-
-          <div className="col-md-7">
-            <a href="#">
-              <img className="img-responsive" src="http://placehold.it/700x300" alt=""/>
-            </a>
-          </div>
-          <div className="col-md-5">
-            <h3>Project Four</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem,
-              consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod
-              modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
-            <a className="btn btn-primary" href="#">View Project
-              <span className="glyphicon glyphicon-chevron-right"></span>
-            </a>
-          </div>
-        </div>
-
-        <hr/>
-
-        <div className="row">
-          <div className="col-md-7">
-            <a href="#">
-              <img className="img-responsive" src="http://placehold.it/700x300" alt=""/>
-            </a>
-          </div>
-          <div className="col-md-5">
-            <h3>Project Five</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo,
-              minima, inventore voluptatum saepe quos nostrum provident ex quisquam hic odio
-              repellendus atque porro distinctio quae id laboriosam facilis dolorum.</p>
-            <a className="btn btn-primary" href="#">View Project
-              <span className="glyphicon glyphicon-chevron-right"></span>
-            </a>
-          </div>
-        </div>
+        {content}
 
         <hr/>
 
@@ -141,9 +82,7 @@ class Post extends Component {
             </ul>
           </div>
         </div>
-
         <hr/>
-
         <footer>
           <div className="row">
             <div className="col-lg-12">
