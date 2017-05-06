@@ -1,8 +1,4 @@
 import React, {Component} from 'react';
-import Nav from './nav';
-import Home from './home';
-import Post from './post';
-import form from './form';
 
 class Form extends Component {
   render() {

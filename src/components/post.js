@@ -1,12 +1,33 @@
 import React, {Component} from 'react';
+var Clarifai = require('clarifai');
+
+// initialize with your clientId and clientSecret
+
+var app = new Clarifai.App('NC_zCTITbajnUlNUJ8LrFMl4FH5tl-1Bl8nSp30p', '1QoTBYaR8MDQRIr_rRHI3RDVvYeMyslkHtq7D9BY');
+
+const pix = '5295631-a69146e890113b5bb39ba83a2';
+
+function pixx() {
+  const imgss = document.querySelectorAll('.i');
+  Array.from(imgss).map(imgg => {
+    console.log(imgg.id);
+    fetch('https://pixabay.com/api/?key=5295631-a69146e890113b5bb39ba83a2&q=' + imgg.id)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        imgg.src = res.hits[0].previewURL;
+      });
+  });
+}
 
 class Post extends Component {
-
   constructor() {
     super();
     this.state = {
-      data: null
+      data: null,
+      imgc: null
     };
+    this.clarif = this.clarif.bind(this);
   }
 
   componentWillMount() {
@@ -14,6 +35,21 @@ class Post extends Component {
     const url = 'http://localhost:8000/api/get/post/?post=' + id;
     fetch(url).then(data => data.json()).then(data => {
       this.setState({data: data});
+      this.clarif();
+    });
+  }
+
+  clarif() {
+    let self = this;
+    app.models.predict(Clarifai.GENERAL_MODEL, this.state.data[0].fields.img_url).then(function (response) {
+      let con = (response.outputs[0].data.concepts.slice(0, 4))
+      .map(concept => ({name: concept.name, val: concept.value}));
+
+      console.table(con);
+      self.setState({imgc: con});
+      pixx();
+    }, function (err) {
+      console.log(err);
     });
   }
 
@@ -23,7 +59,7 @@ class Post extends Component {
     if (this.state.data) {
       o = this.state.data[0];
       content = (
-        <div className="row">
+        <div className="row" key={o.pk}>
           <div className="col-md-8">
             <img className="img-responsive" src={o.fields.img_url} alt=""/>
           </div>
@@ -39,68 +75,43 @@ class Post extends Component {
               <li>Adipiscing Elit</li>
             </ul> */}
           </div>
-
         </div>
       );
     }
-    console.log(o.fields);
+
+    let imgc = '';
+    if (this.state.imgc) {
+      imgc = (this.state.imgc.map(i => {
+        return (
+          <div className="col-sm-3 col-xs-6">
+            <a href="#">
+              <img id={i.name}
+                className="img-responsive i portfolio-item"
+                alt=""/> {i.name.charAt(0).toUpperCase() + i.name.slice(1)}
+            </a>
+          </div>
+        )
+      }));
+    }
+
     return (
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
             <h1 className="page-header">Item
-              <small> Item Subheading</small>
+              <small>
+                Item Subheading</small>
             </h1>
           </div>
         </div>
-
-        { content }
+        {content}
         <div className="row">
-
           <div className="col-lg-12">
-            <h3 className="page-header">Related Projects</h3>
+            <h3 className="page-header">Related content</h3>
           </div>
-
-          <div className="col-sm-3 col-xs-6">
-            <a href="#">
-              <img
-                className="img-responsive portfolio-item"
-                src="http://placehold.it/500x300"
-                alt=""/>
-            </a>
-          </div>
-
-          <div className="col-sm-3 col-xs-6">
-            <a href="#">
-              <img
-                className="img-responsive portfolio-item"
-                src="http://placehold.it/500x300"
-                alt=""/>
-            </a>
-          </div>
-
-          <div className="col-sm-3 col-xs-6">
-            <a href="#">
-              <img
-                className="img-responsive portfolio-item"
-                src="http://placehold.it/500x300"
-                alt=""/>
-            </a>
-          </div>
-
-          <div className="col-sm-3 col-xs-6">
-            <a href="#">
-              <img
-                className="img-responsive portfolio-item"
-                src="http://placehold.it/500x300"
-                alt=""/>
-            </a>
-          </div>
-
+          {imgc}
         </div>
-
         <hr/>
-
         <footer>
           <div className="row">
             <div className="col-lg-12">
@@ -108,7 +119,6 @@ class Post extends Component {
             </div>
           </div>
         </footer>
-
       </div>
     );
   }
