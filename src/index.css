@@ -5,6 +5,30 @@ body {
   background-color: #FFFDE7;
 }
 
+.navbar-inverse {
+  background-color: #f44336;
+  color: white;
+  border-color: #424242;
+}
+
+.btn-primary {
+  border: 0;
+  background-color: #FF7043;
+  border-radius: 0;
+}
+
+.btn-primary:hover {
+  background-color: #f44336;
+}
+
+#bs-example-navbar-collapse-1 > ul > li:nth-child(1) > a > b,
+#bs-example-navbar-collapse-1 > ul > li:nth-child(2) > a > b,
+#root > div > nav > div > div.navbar-header > a > b {
+  color: white;
+}
+
+
+
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }

@@ -55,7 +55,7 @@ b {
 
 #content {
   transform: rotate(0);
-  line-height: 2em;
+  line-height: 1.5em;
 }
 
 .type span:nth-child(3) {
@@ -70,19 +70,21 @@ b {
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
 }
+
 .headText h1 {
   font-size: 6em;
   font-weight: 100;
   margin-bottom: 0;
   margin-top: 0;
 }
+
 .headText .smaller {
   font-weight: 100;
   text-transform: none;
   font-size: 1.4em;
 }
 
-.buttonChest, #next{
+.buttonChest, #next {
   left: 36%;
   top: 20px;
   position: relative;
@@ -95,6 +97,7 @@ b {
 #next {
   left: 41%;
 }
+
 .buttonChest li {
   display: inline-block;
   position: relative;
@@ -103,6 +106,7 @@ b {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 }
+
 .buttonChest li .click {
   position: absolute;
   text-align: center;
@@ -116,6 +120,7 @@ b {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 }
+
 .buttonChest li:hover .click {
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -126,6 +131,7 @@ b {
   padding-top: 4px;
   padding-bottom: 5px;
 }
+
 .buttonChest li:hover {
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -150,6 +156,7 @@ b {
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
+
 .button:hover {
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -165,6 +172,7 @@ b {
     font-size: 4em;
   }
 }
+
 .navy {
   background: #2c3e50;
 }
