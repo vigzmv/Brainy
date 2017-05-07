@@ -51,11 +51,12 @@ b {
   transform-origin: 0 0;
   color: #fff;
   margin-top: 5px;
+  line-height: 1.1em;
 }
 
 #content {
   transform: rotate(0);
-  line-height: 1.5em;
+  line-height: 1.6em;
 }
 
 .type span:nth-child(3) {
