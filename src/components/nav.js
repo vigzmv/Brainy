@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+// @flow
+
+import React, { Component } from 'react';
 class Nav extends Component {
   render() {
     return (
@@ -9,15 +11,19 @@ class Nav extends Component {
               type="button"
               className="navbar-toggle"
               data-toggle="collapse"
-              data-target="#bs-example-navbar-collapse-1">
+              data-target="#bs-example-navbar-collapse-1"
+            >
               <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
+              <span className="icon-bar" />
+              <span className="icon-bar" />
+              <span className="icon-bar" />
             </button>
             <a className="navbar-brand" href="/"><b>Brainy Demo</b></a>
           </div>
-          <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div
+            className="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
             <ul className="nav navbar-nav pull-right">
               <li>
                 <a href="#"><b>About</b></a>
@@ -29,7 +35,7 @@ class Nav extends Component {
           </div>
         </div>
       </nav>
-    )
+    );
   }
 }
 

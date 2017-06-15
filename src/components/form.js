@@ -1,11 +1,17 @@
-import React, {Component} from 'react';
+// @flow
+
+import React, { Component } from 'react';
 
 class Form extends Component {
   render() {
     return (
       <div className="container">
         <div className="row">
-          <form role="form" method="post" action="http://localhost:8000/api/add/post/">
+          <form
+            role="form"
+            method="post"
+            action="http://localhost:8000/api/add/post/"
+          >
             <div className="col-lg-6">
               <div className="form-group">
                 <label htmlFor="InputName">Title</label>
@@ -15,9 +21,10 @@ class Form extends Component {
                     className="form-control"
                     name="title"
                     id="InputName"
-                    required/>
+                    required
+                  />
                   <span className="input-group-addon">
-                    <span className="glyphicon glyphicon-asterisk"></span>
+                    <span className="glyphicon glyphicon-asterisk" />
                   </span>
                 </div>
               </div>
@@ -29,9 +36,10 @@ class Form extends Component {
                     className="form-control"
                     id="InputEmailFirst"
                     name="desc"
-                    required/>
+                    required
+                  />
                   <span className="input-group-addon">
-                    <span className="glyphicon glyphicon-asterisk"></span>
+                    <span className="glyphicon glyphicon-asterisk" />
                   </span>
                 </div>
               </div>
@@ -43,9 +51,10 @@ class Form extends Component {
                     className="form-control"
                     id="InputEmailSecond"
                     name="img_url"
-                    required/>
+                    required
+                  />
                   <span className="input-group-addon">
-                    <span className="glyphicon glyphicon-asterisk"></span>
+                    <span className="glyphicon glyphicon-asterisk" />
                   </span>
                 </div>
               </div>
@@ -57,9 +66,10 @@ class Form extends Component {
                     id="InputMessage"
                     className="form-control"
                     rows="5"
-                    required></textarea>
+                    required
+                  />
                   <span className="input-group-addon">
-                    <span className="glyphicon glyphicon-asterisk"></span>
+                    <span className="glyphicon glyphicon-asterisk" />
                   </span>
                 </div>
               </div>
@@ -68,12 +78,13 @@ class Form extends Component {
                 name="submit"
                 id="submit"
                 value="Submit"
-                className="btn btn-info pull-right"/>
+                className="btn btn-info pull-right"
+              />
             </div>
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
 

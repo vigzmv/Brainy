@@ -27,31 +27,30 @@ body {
   color: white;
 }
 
-
-
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+  padding-top: 70px;
+  /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 footer {
-    margin: 50px 0;
+  margin: 50px 0;
 }
 
-#images
-{
-    width: 130px;
-    height: 100px;
-    overflow: hidden;
-    margin: 10px;
-    position: relative;
+#images {
+  width: 130px;
+  height: 100px;
+  overflow: hidden;
+  margin: 10px;
+  position: relative;
 }
+
 .i {
-    position:absolute;
-    left: -100%;
-    right: -100%;
-    top: -100%;
-    bottom: -100%;
-    margin: auto;
-    min-height: 100%;
-    min-width: 100%;
+  position: absolute;
+  left: -100%;
+  right: -100%;
+  top: -100%;
+  bottom: -100%;
+  margin: auto;
+  min-height: 100%;
+  min-width: 100%;
 }

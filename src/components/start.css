@@ -1,20 +1,20 @@
 body {
   background: #F94F6A;
   -webkit-font-smoothing: antialiased !important;
-  webkit-text-stroke: 1px rgba(0,0,0,0.1);
+  webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
 }
 
 .type span {
-  display:block;
+  display: block;
 }
 
 .type {
-  width:400px;
-  height:400px;
-  margin:50px auto;
-	text-align: center;
-	color: #F5C4B6;
-  line-height:0.85;
+  width: 400px;
+  height: 400px;
+  margin: 50px auto;
+  text-align: center;
+  color: #F5C4B6;
+  line-height: 0.85;
   font-family: Tahoma, Geneva, sans-serif;
   font-weight: bold;
 }
@@ -30,22 +30,22 @@ body {
   position: relative;
   z-index: 1;
   text-shadow: 5px 0 0 #F94F6A,
-				-5px 0 0 #F94F6A,
-				0 5px 0 #F94F6A,
-				0 -5px 0 #F94F6A,
-				4px 4px #F94F6A,
-				-4px -4px 0 #F94F6A,
-				4px -4px 0 #F94F6A,
-				-4px 4px 0 #F94F6A;
+    -5px 0 0 #F94F6A,
+    0 5px 0 #F94F6A,
+    0 -5px 0 #F94F6A,
+    4px 4px #F94F6A,
+    -4px -4px 0 #F94F6A,
+    4px -4px 0 #F94F6A,
+    -4px 4px 0 #F94F6A;
   -webkit-transform: rotate(-3deg);
   transform: rotate(-3deg);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
-  color:#fff;
-  margin-top:-5px;
+  color: #fff;
+  margin-top: -5px;
 }
 
 .type span:nth-child(3) {
   font-size: 150px;
-  margin-top:-12px;
+  margin-top: -12px;
 }

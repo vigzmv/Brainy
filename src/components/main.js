@@ -1,6 +1,9 @@
-import React, {Component} from 'react';
-import { BrowserRouter as Router,
-  Route,
+// @flow
+
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route
   // Link,
 } from 'react-router-dom';
 
@@ -10,21 +13,20 @@ import Post from './post';
 import Form from './form';
 import Start from './start';
 
-
 class Main extends Component {
   render() {
     return (
       <div>
-        <Nav/>
+        <Nav />
         <Router>
           <div>
-            <Route exact path="/" component={Home}/>
-            <Route path="/post" component={Post}/>
-            <Route path="/add" component={Form}/>
+            <Route exact path="/" component={Home} />
+            <Route path="/post" component={Post} />
+            <Route path="/add" component={Form} />
           </div>
         </Router>
       </div>
-    )
+    );
   }
 }
 

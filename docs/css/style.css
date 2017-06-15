@@ -36,7 +36,8 @@ b {
   font-size: 150px;
 }
 
-.type span:nth-child(1)::first-letter {}
+.type span:nth-child(1)::first-letter {
+}
 
 #cursive, #content {
   font-family: 'Pacifico', cursive;
@@ -44,7 +45,14 @@ b {
   font-size: 70px;
   position: relative;
   z-index: 1;
-  text-shadow: 5px 0 0 #F94F6A, -5px 0 0 #F94F6A, 0 5px 0 #F94F6A, 0 -5px 0 #F94F6A, 4px 4px #F94F6A, -4px -4px 0 #F94F6A, 4px -4px 0 #F94F6A, -4px 4px 0 #F94F6A;
+  text-shadow: 5px 0 0 #F94F6A,
+    -5px 0 0 #F94F6A,
+    0 5px 0 #F94F6A,
+    0 -5px 0 #F94F6A,
+    4px 4px #F94F6A,
+    -4px -4px 0 #F94F6A,
+    4px -4px 0 #F94F6A,
+    -4px 4px 0 #F94F6A;
   -webkit-transform: rotate(-3deg);
   transform: rotate(-3deg);
   -webkit-transform-origin: 0 0;

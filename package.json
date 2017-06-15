@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "clarifai": "^2.1.6",
+    "flow-bin": "^0.48.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1"
