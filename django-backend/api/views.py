@@ -8,7 +8,7 @@ from django.core import serializers
 
 # Create your views here.
 
-from models import Post
+from api.models import Post
 
 
 def index(request):
@@ -23,11 +23,12 @@ def addPost(request):
         img_url = request.POST.get('img_url')
         content = request.POST.get('content')
 
-        post = Post.objects.create(title=title,
-                                   desc=desc,
-                                   img_url=img_url,
-                                   content=content
-                                   )
+        post = Post.objects.create(
+            title=title,
+            desc=desc,
+            img_url=img_url,
+            content=content
+        )
 
         return redirect('http://localhost:3000/post/?post=' + str(post.id))
 

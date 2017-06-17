@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from views import *
+from api.views import *
 
 urlpatterns = [
     url(r'^add/post/', addPost),
